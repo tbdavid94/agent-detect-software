@@ -1,0 +1,18 @@
+FROM centos:latest
+
+RUN yum update -y && yum install -y \
+    golang \
+    git \
+    ca-certificates \
+    && yum clean all
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
+COPY . $GOPATH/src/agent
+WORKDIR $GOPATH/src/agent
+
+RUN go build -o /agent
+
+CMD ["/agent"]

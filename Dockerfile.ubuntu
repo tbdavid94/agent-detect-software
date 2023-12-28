@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y \
+    golang-go \
+    git \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
+COPY . $GOPATH/src/agent
+WORKDIR $GOPATH/src/agent
+
+RUN go build -o /agent
+
+CMD ["/agent"]
