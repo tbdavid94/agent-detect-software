@@ -36,7 +36,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-    - name: Build and run container
+#    - name: Build and run container
+#      run: |
+#        docker build -f Dockerfile.${{ matrix.os }} -t agent-${{ matrix.os }} .
+#        docker run agent-${{ matrix.os }}
+
+    - name: Build and run script
       run: |
-        docker build -f Dockerfile.${{ matrix.os }} -t agent-${{ matrix.os }} .
-        docker run agent-${{ matrix.os }}
+        ./build.sh
+        ./bin/1.0.0/agent-linux-amd64-1.0.0
