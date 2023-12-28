@@ -36,10 +36,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildx-
 
-#    - name: Build and run container
-#      run: |
-#        docker build -f Dockerfile.${{ matrix.os }} -t agent-${{ matrix.os }} .
-#        docker run agent-${{ matrix.os }}
+    - name: Check OS
+      run: |
+        uname -a
+        lsb_release -a
 
     - name: Build and run script
       run: |
