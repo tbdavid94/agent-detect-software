@@ -1,7 +1,7 @@
 FROM centos:latest
 
 RUN yum clean all
-RUN yum -y update
+RUN yum -y update --nobest
 RUN yum install -y golang git ca-certificates
 RUN yum clean all
 
