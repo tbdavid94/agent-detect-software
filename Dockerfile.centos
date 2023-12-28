@@ -4,7 +4,7 @@ RUN yum update -y && yum install -y \
     golang \
     git \
     ca-certificates \
-    && yum clean all
+    yum clean all
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH

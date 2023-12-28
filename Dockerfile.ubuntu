@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
     golang-go \
     git \
     ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
