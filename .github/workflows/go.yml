@@ -54,4 +54,6 @@ jobs:
 
     - name: Build and run script Windows
       if: runner.os == 'Windows'
-      run: .\bin\1.0.0\agent-windows-amd64-1.0.0.exe
+      run: |
+        .\build.bat
+        .\bin\1.0.0\agent-windows-amd64-1.0.0.exe
