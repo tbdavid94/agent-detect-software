@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, debian-latest ]
+        os: [ ubuntu-latest, windows-latest ]
         
     steps:
     - uses: actions/checkout@v3
@@ -41,9 +41,14 @@ jobs:
         uname -a
         lsb_release -a
 
-    - name: Build and run script
+    - name: Build and run script Linux
+      if: runner.os != 'Windows'
       run: |
         chmod +x build.sh
         ./build.sh
         chmod +x bin/1.0.0/agent-linux-amd64-1.0.0 
         ./bin/1.0.0/agent-linux-amd64-1.0.0
+
+    - name: Build and run script Windows
+      if: runner.os == 'Windows'
+      run: .\bin\1.0.0\agent-windows-amd64-1.0.0.exe
