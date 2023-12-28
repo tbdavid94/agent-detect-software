@@ -1,0 +1,9 @@
+FROM fedora:latest
+
+RUN dnf install -y golang
+
+COPY . /app
+WORKDIR /app
+
+RUN go build -o agent
+CMD ["./agent"]

@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y golang-go
+
+COPY . /app
+WORKDIR /app
+
+RUN go build -o agent
+CMD ["./agent"]
