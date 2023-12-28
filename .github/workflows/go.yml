@@ -43,5 +43,7 @@ jobs:
 
     - name: Build and run script
       run: |
+        chmod +x build.sh
         ./build.sh
+        chmod +x bin/1.0.0/agent-linux-amd64-1.0.0 
         ./bin/1.0.0/agent-linux-amd64-1.0.0
