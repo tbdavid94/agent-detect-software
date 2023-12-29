@@ -1,9 +1,6 @@
-FROM ubuntu:latest
-
-RUN apt-get update && apt-get install -y golang-go
+FROM debian:latest
 
 COPY . /app
 WORKDIR /app
 
-RUN go build -o agent
-CMD ["./agent"]
+CMD ["./bin/1.0.0/agent-linux-amd64-1.0.0"]
