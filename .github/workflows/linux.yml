@@ -46,7 +46,7 @@ jobs:
         chmod +x build.sh
         ./build.sh
 
-    - name: Build Debian
+    - name: Build ${{ matrix.os }}
       run: |
         docker build -f Dockerfile.${{ matrix.os }} -t agent-${{ matrix.os }} .
         docker run agent-${{ matrix.os }}
