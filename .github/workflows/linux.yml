@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ debian, ubuntu ]
+        os: [ debian, ubuntu, centos, redhat ]
 
     steps:
     - uses: actions/checkout@v3

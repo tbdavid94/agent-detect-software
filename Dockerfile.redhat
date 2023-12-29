@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM redhat:latest
 
 COPY . /app
 WORKDIR /app
