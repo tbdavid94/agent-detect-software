@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+RUN mkdir C:\\app
+WORKDIR C:\\app
+
+COPY . C:\\app
+
+CMD ["C:\\app\\bin\\1.0.0\\agent-windows-amd64-1.0.0.exe"]
